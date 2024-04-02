@@ -1,107 +1,71 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,700&display=swap');
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    color: #2A324B;
-    margin: 0;
-    padding: 0;
-    background-color: #E1E5EE;
-}
-
-nav#fanemeny {
-    background-color: #2A324B;
-    overflow: hidden;
-    font-family: 'Roboto', sans-serif;
-}
-
-nav#fanemeny ul {
-    list-style: none;
-    padding-left: 0;
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+  }
+  a:hover {
+    color: #535bf2;
+  }
+  
+  body {
     margin: 0;
     display: flex;
-    justify-content: center;
-}
-
-nav#fanemeny ul li {
-    display: inline;
-}
-
-nav#fanemeny ul li a {
-    display: inline-block;
-    padding: 15px 20px;
-    color: #fff;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-nav#fanemeny ul li a:hover,
-nav#fanemeny ul li a.active {
-    background-color: #58699D;
-}
-
-main#main-content {
-    background-color: #fff;
-    padding: 20px;
-    min-height: 80vh; /* Tilpasset etter behov for å sikre at innholdet dekker vertikal plass */
-}
-
-body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #E1E5EE;
-    box-sizing: border-box;
-}
-
-* {
-    box-sizing: inherit;
-}
-
-.container {
-    max-width: 1600px;
-    margin: 200px auto 0;
-}
-
-.tab {
-    flex: 1;
-    flex-grow: 1;
-    padding: 32px; 
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+  }
+  
+  h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+  }
+  
+  button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
     cursor: pointer;
-    text-align: center;
-    box-sizing: border-box;
-    position: relative;
-    background-color: #2A324B;
-    margin-right: 20px; 
-    font-weight: 1000; 
-    font-size: 24px;
-    color: white; 
-}
-
-.tab:last-child {
-    margin-right: 0; 
-    flex-grow: 1.6;
-}
-
-.tabs {
-    display: flex;
-    background-color: #E1E5EE; 
-    overflow: hidden; 
-}
-
-.tab-content {
-    display: none;
-    padding: 90px;
-    padding-left: 90px; 
-    font-size: 22px; 
-}
-
-.tab-content.show {
-    display: block;
-    background-color: #fff;
-}
-
-.tab.active {
-    background-color: #ffffff;
-    color: #2A324B; 
-}
-
-
+    transition: border-color 0.25s;
+  }
+  button:hover {
+    border-color: #646cff;
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+  
+  @media (prefers-color-scheme: light) {
+    :root {
+      color: #213547;
+      background-color: #ffffff;
+    }
+    a:hover {
+      color: #747bff;
+    }
+    button {
+      background-color: #f9f9f9;
+    }
+  }
+  
