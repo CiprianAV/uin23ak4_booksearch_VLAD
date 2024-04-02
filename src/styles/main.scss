@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #2A324B;
+    margin: 0;
+    padding: 0;
+    background-color: #E1E5EE;
+}
+
+nav#fanemeny {
+    background-color: #2A324B;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav#fanemeny ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav#fanemeny ul li {
+    display: inline;
+}
+
+nav#fanemeny ul li a {
+    display: inline-block;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+nav#fanemeny ul li a:hover,
+nav#fanemeny ul li a.active {
+    background-color: #58699D;
+}
+
+main#main-content {
+    background-color: #fff;
+    padding: 20px;
+    min-height: 80vh; /* Tilpasset etter behov for å sikre at innholdet dekker vertikal plass */
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #E1E5EE;
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 200px auto 0;
+}
+
+.tab {
+    flex: 1;
+    flex-grow: 1;
+    padding: 32px; 
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+    position: relative;
+    background-color: #2A324B;
+    margin-right: 20px; 
+    font-weight: 1000; 
+    font-size: 24px;
+    color: white; 
+}
+
+.tab:last-child {
+    margin-right: 0; 
+    flex-grow: 1.6;
+}
+
+.tabs {
+    display: flex;
+    background-color: #E1E5EE; 
+    overflow: hidden; 
+}
+
+.tab-content {
+    display: none;
+    padding: 90px;
+    padding-left: 90px; 
+    font-size: 22px; 
+}
+
+.tab-content.show {
+    display: block;
+    background-color: #fff;
+}
+
+.tab.active {
+    background-color: #ffffff;
+    color: #2A324B; 
+}
+
+
