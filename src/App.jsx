@@ -1,18 +1,43 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import './App.css';
+import './main.scss';
+import SearchResults from './Components/SearchResults';
+import BookCard from './Components/BookCard';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [jamesBondBooks, setJamesBondBooks] = useState([]);
 
   useEffect(() => {
     if (searchTerm.length >= 3) {
       searchBooks(searchTerm);
     } else {
-      setSearchResults([]);
+      fetchJamesBondBooks();
     }
   }, [searchTerm]);
+
+  const fetchJamesBondBooks = async () => {
+    try {
+      const response = await axios.get(
+        `https://openlibrary.org/search.json?title=james+bond`
+      );
+      const books = response.data.docs
+        .filter(book => book.title.toLowerCase().includes('james bond'))
+        .map(book => ({
+          title: book.title,
+          publish_date: book.first_publish_year ? book.first_publish_year.toString() : "Unknown",
+          author_name: book.author_name ? book.author_name.join(", ") : "Unknown",
+          average_rating: "N/A", // Rating is not available in this API
+          amazon_id: book.amazon_id,
+        }));
+      setJamesBondBooks(books);
+    } catch (error) {
+      console.error('Error fetching James Bond books:', error);
+      setJamesBondBooks([]);
+    }
+  };
+  
 
   const searchBooks = async (query) => {
     try {
@@ -26,8 +51,8 @@ function App() {
           );
           return {
             title: book.title,
-            publish_year: book.publish_year ? book.publish_year[0] : "Unknown",
-            author: book.author_name ? book.author_name.join(", ") : "Unknown",
+            publish_date: book.publish_year ? book.publish_year[0].toString() : "Unknown",
+            author_name: book.author_name ? book.author_name.join(", ") : "Unknown",
             average_rating: bookDetailsResponse.data?.details?.average_rating || "N/A",
             amazon_id: book.amazon_id,
           };
@@ -39,6 +64,7 @@ function App() {
       setSearchResults([]); // Reset search results if an error occurs
     }
   };
+  
 
   return (
     <div className="container">
@@ -49,23 +75,18 @@ function App() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <div>
-        {searchResults.map((book) => (
-          <div key={book.title}>
-            <h3>{book.title}</h3>
-            <p>Published Year: {book.publish_year}</p>
-            <p>Author(s): {book.author}</p>
-            <p>Average Rating: {book.average_rating}</p>
-            <a
-              href={`https://www.amazon.com/s?k=${book.amazon_id}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Search on Amazon
-            </a>
-          </div>
-        ))}
-      </div>
+      {searchTerm.length < 3 ? (
+        <div className="results">
+          <h2>James Bond Books</h2>
+          <ul>
+            {jamesBondBooks.map((book, index) => (
+              <BookCard key={index} book={book} />
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <SearchResults results={searchResults} />
+      )}
     </div>
   );
 }
