@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import './main.scss';
+import './styles/main.scss';
 import SearchResults from './Components/SearchResults';
 import BookCard from './Components/BookCard';
 
