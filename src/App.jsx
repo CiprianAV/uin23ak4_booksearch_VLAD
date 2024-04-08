@@ -28,7 +28,7 @@ function App() {
           title: book.title,
           publish_date: book.first_publish_year ? book.first_publish_year.toString() : "Unknown",
           author_name: book.author_name ? book.author_name.join(", ") : "Unknown",
-          average_rating: "N/A", // Rating is not available in this API
+          average_rating: "N/A", 
           amazon_id: book.amazon_id,
         }));
       setJamesBondBooks(books);
@@ -61,7 +61,7 @@ function App() {
       setSearchResults(searchResultsWithDetails);
     } catch (error) {
       console.error('Error searching books:', error);
-      setSearchResults([]); // Reset search results if an error occurs
+      setSearchResults([]); 
     }
   };
   

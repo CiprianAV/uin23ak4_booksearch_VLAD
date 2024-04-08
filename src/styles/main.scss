@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,700&display=swap');
 
 body {
-  background-color: #242424; /* Change this to the desired background color */
+  background-color: #242424; 
   font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -73,4 +73,8 @@ h1 {
 
 .book-card a:hover {
   color: #535bf2;
+}
+
+.search-results ul {
+    list-style-type: none; 
 }
